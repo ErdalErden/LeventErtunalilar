@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY METHODS</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .highlight {
+            background-color: gray;
+        }
+        .orange {
+            background-color: orange;
+        }
+    </style>    
+</head>
+<body>
+    <a href="#">Link 1</a>
+    <h3 id="header">Kurslarım</h3>
+    <ul id="liste">
+        <li class="item1">Sıfırdan İleri Düzey Web Geliştirme</li>
+        <li>Python Programlama <a href="#">Link 2</a></li>
+        <li>Android ve IOS Mobil Uygulama Geliştirme</li>
+    </ul>
+
+    <img src="resim.jpeg" alt="Resim" width="200">
+    <p>
+        <input type="text" placeholder="Adınız" id="ad">
+        <input type="text" placeholder="Soyadınız" id="soyad">
+        <button id="btnKayitOl" onclick="kayitOl();">Kayıt Ol</button>
+    </p>
+
+
+    <script>
+        console.log($("h3").text());
+        console.log($("ul li").text());
+        $("h3").text("Udemy Kurslarım");
+
+        function kayitOl(){
+            var ad=$("#ad").val();
+            var soyad=$("#soyad").val();
+            console.log(ad + " " + soyad + " kursa kayıt oldu.");
+
+            $("#ad").addClass("highlight");
+            $("#soyad").addClass("orange");
+            $("img").attr("width","300");
+        }
+
+    </script>
+</body>
+</html>
