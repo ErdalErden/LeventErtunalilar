@@ -54,29 +54,56 @@
 
 // PROTOTYPE KONUSU -----------------------------
 
-let Person = function(name, yearOfBirth, job){
-    this.name = name;
-    this.yearOfBirth = yearOfBirth;
-    this.job = job;
+//let Person = function(name, yearOfBirth, job){
+//    this.name = name;
+//    this.yearOfBirth = yearOfBirth;
+//    this.job = job;
+//}
+
+//Person.prototype.calculateAge = function () {
+//    return 2022 - this.yearOfBirth;
+//}
+
+//Person.prototype.getName = function(){
+//    return this.name;
+//}
+
+//let Aylin = new Person("Aylin",1980,"teacher");
+//let Kaan = new Person("Kaan",2005,"Student")
+
+//console.log(Aylin.calculateAge()); 
+//console.log(Aylin.getName());
+//console.log(Aylin);
+
+//console.log("------------")
+
+//console.log(Kaan.calculateAge()); 
+//console.log(Kaan.getName());
+//console.log(Kaan);
+
+// --------------------- AYRAÇ -------------
+
+// Object.create metodu
+let personProto = {
+    calculateAge : function() {
+        return 2021 - this.yearOfBirth;
+    }
 }
 
-Person.prototype.calculateAge = function () {
-    return 2022 - this.yearOfBirth;
-}
+let kaan = Object.create(personProto);
+kaan.name = "Kaan";
+kaan.yearOfBirth = 2008;
+kaan.job = "Student";
 
-Person.prototype.getName = function(){
-    return this.name;
-}
+let aylin = Object.create(personProto,{
+    name : {value : "aylin"},
+    yearOfBirth : {value:1980},
+    job : {value :"teacher"}
+});
 
-let Aylin = new Person("Aylin",1980,"teacher");
-let Kaan = new Person("Kaan",2005,"Student")
 
-console.log(Aylin.calculateAge()); 
-console.log(Aylin.getName());
-console.log(Aylin);
+console.log(kaan);
+console.log(kaan.calculateAge());
+console.log(aylin);
+console.log(aylin.calculateAge());
 
-console.log("------------")
-
-console.log(Kaan.calculateAge()); 
-console.log(Kaan.getName());
-console.log(Kaan);
