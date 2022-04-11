@@ -34,8 +34,6 @@
 //     }
 // }
 
-
-
 // let kaan = new Student("Kaan", 2008, "Student");
 // let Aylin = new Student("Aylin", 2005, "Student");
 
@@ -51,6 +49,7 @@
 // console.log(Aylin.job);
 // console.log(Aylin.calculateAge());
 
+// --------------------- AYRAÇ ------------
 
 // PROTOTYPE KONUSU -----------------------------
 
@@ -84,26 +83,55 @@
 // --------------------- AYRAÇ -------------
 
 // Object.create metodu
-let personProto = {
-    calculateAge : function() {
-        return 2021 - this.yearOfBirth;
-    }
+//let personProto = {
+//    calculateAge : function() {
+//        return 2021 - this.yearOfBirth;
+//    }
+//}
+
+//let kaan = Object.create(personProto);
+//kaan.name = "Kaan";
+//kaan.yearOfBirth = 2008;
+//kaan.job = "Student";
+
+//let aylin = Object.create(personProto,{
+//    name : {value : "aylin"},
+//    yearOfBirth : {value:1980},
+//    job : {value :"teacher"}
+//});
+
+
+//console.log(kaan);
+//console.log(kaan.calculateAge());
+//console.log(aylin);
+//console.log(aylin.calculateAge());
+
+// ------------------- AYRAÇ ------------
+
+// Prototype Tabanlı Miras Alma
+
+let Person = function(name,yearOfBirth,job){
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
 }
 
-let kaan = Object.create(personProto);
-kaan.name = "Kaan";
-kaan.yearOfBirth = 2008;
-kaan.job = "Student";
+Person.prototype.calculateAge = function(){
+    return 2021 - this.yearOfBirth;
+}
 
-let aylin = Object.create(personProto,{
-    name : {value : "aylin"},
-    yearOfBirth : {value:1980},
-    job : {value :"teacher"}
-});
+let Teacher = function(name,yearOfBirth,job,subject){
+    Person.call(this,name,yearOfBirth,job)
+    this.subject = subject;
+}
 
+// Person prototype metodların inherit edilmesi (miras alınması)
+Teacher.prototype = Object.create(Person.prototype);
 
-console.log(kaan);
-console.log(kaan.calculateAge());
-console.log(aylin);
-console.log(aylin.calculateAge());
+// set Teacher constructor
+Teacher.prototype.constructor = Teacher;
 
+let Aylin = new Teacher("Aylin",1980,"teacher","english");
+
+console.log(Aylin);
+console.log(Aylin.calculateAge());
