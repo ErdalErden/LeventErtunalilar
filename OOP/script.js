@@ -110,28 +110,51 @@
 
 // Prototype Tabanlı Miras Alma
 
-let Person = function(name,yearOfBirth,job){
-    this.name = name;
-    this.yearOfBirth = yearOfBirth;
-    this.job = job;
+//let Person = function(name,yearOfBirth,job){
+//    this.name = name;
+//    this.yearOfBirth = yearOfBirth;
+//    this.job = job;
+//}
+
+//Person.prototype.calculateAge = function(){
+//    return 2021 - this.yearOfBirth;
+//}
+
+//let Teacher = function(name,yearOfBirth,job,subject){
+//    Person.call(this,name,yearOfBirth,job)
+//    this.subject = subject;
+//}
+
+//// Person prototype metodların inherit edilmesi (miras alınması)
+//Teacher.prototype = Object.create(Person.prototype);
+
+//// set Teacher constructor
+//Teacher.prototype.constructor = Teacher;
+
+//let Aylin = new Teacher("Aylin",1980,"teacher","english");
+
+//console.log(Aylin);
+//console.log(Aylin.calculateAge());
+
+// ------------------- AYRAÇ -------------
+
+// Immediate Functions
+
+// Normal yöntem
+function welcome(){
+    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var today = new Date ();
+    var msg = "Welcome. Today is "+days[today.getDay()];
+    return msg;
 }
 
-Person.prototype.calculateAge = function(){
-    return 2021 - this.yearOfBirth;
-}
+console.log(welcome());
 
-let Teacher = function(name,yearOfBirth,job,subject){
-    Person.call(this,name,yearOfBirth,job)
-    this.subject = subject;
-}
 
-// Person prototype metodların inherit edilmesi (miras alınması)
-Teacher.prototype = Object.create(Person.prototype);
-
-// set Teacher constructor
-Teacher.prototype.constructor = Teacher;
-
-let Aylin = new Teacher("Aylin",1980,"teacher","english");
-
-console.log(Aylin);
-console.log(Aylin.calculateAge());
+//Immediate Function yöntemi
+(function(name){
+    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var today = new Date ();
+    var msg = 'Welcome ' +name+ ' Today is '+days[today.getDay()];
+    console.log(msg);
+}("Erdal"));
