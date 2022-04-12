@@ -1,7 +1,7 @@
-const form = document.querySelector("#car-form");
-const titleElement = document.querySelector("#title");
-const priceElement = document.querySelector("#price");
-const urlElement = document.querySelector("#url");
+const carform = document.getElementById("car-form");
+const titleElement = document.getElementById("title");
+const priceElement = document.getElementById("price");
+const urlElement = document.getElementById("url");
 
 // UI Objesini başlatma
 const ui = new Ui();
@@ -10,7 +10,7 @@ const ui = new Ui();
 eventListeners();
 
 function eventListeners(){ 
-    form.addEventListener("submit", addCar);
+    carform.addEventListener("submit", addCar);
 }
 
 function addCar(e){
