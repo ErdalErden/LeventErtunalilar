@@ -1,8 +1,8 @@
-function Ui() {
+function UI() {
 
 }
 
-Ui.prototype.addCarToUi = function (newCar) {
+UI.prototype.addCarToUI = function (newCar) {
     //    <!-- <tr>
     //    <td><img src="" class="img-fluid img-thumbnail"></td>
     //    <td></td>
