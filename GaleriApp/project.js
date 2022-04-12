@@ -1,16 +1,16 @@
-const form = document.getElementById("#car-form");
+const form = document.querySelector("#car-form");
 const titleElement = document.querySelector("#title");
 const priceElement = document.querySelector("#price");
 const urlElement = document.querySelector("#url");
 
 // UI Objesini başlatma
-const ui = new UI();
+const ui = new Ui();
 
 // Tüm eventleri yükleme
 eventListeners();
 
-function eventListeners(){
-    form.addEventListener("submit", addCar());
+function eventListeners(){ 
+    form.addEventListener("submit", addCar);
 }
 
 function addCar(e){
@@ -21,11 +21,9 @@ function addCar(e){
     if(title === "" || price === "" || url === ""){
         //Hata
     }
-    else
-    {
+    else{
         //Yeni Araç
         const newCar = new Car(title,price,url);
-        ui.addCarToUI(newCar);//arayüze araç ekleme
-
+        ui.addCarToUi(newCar);//arayüze araç ekleme
     }
 }
