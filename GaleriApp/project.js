@@ -6,11 +6,19 @@ const urlElement = document.querySelector("#url");
 // UI Objesini başlatma
 const ui = new UI();
 
+// Storage Objesini başlatma
+const storage = new Storage();
+
+
 // Tüm eventleri yükleme
 eventListeners();
 
 function eventListeners() {
     carform.addEventListener("submit", addCar);
+    document.addEventListener("DOMContentLoaded",function(){
+        let cars = storage.getCarsFromStorage();
+        ui.loadAllCars(cars);
+    })
 }
 
 function addCar(e) {
@@ -30,7 +38,8 @@ function addCar(e) {
     }
     else {
         const newCar = new Car(title,price,url);
-        ui.addCarToUI(newCar);//arayüze araç ekleme  
+        ui.addCarToUI(newCar);//arayüze araç ekleme
+        storage.addCarToStorage(newCar);  
         ui.clearInputs(titleElement, priceElement, urlElement);
         ui.displayMessages("Araç başarıyla eklendi ...","success");
     }
