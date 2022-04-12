@@ -47,7 +47,7 @@ UI.prototype.clearInputs = function (element1, element2, element3) {
 
 UI.prototype.titleCheck = function (title) {
     let result = true;
-    if (title === "") {
+    if (title === "" || title.length < 3) {
         result = false;
     }
     return result;
@@ -55,7 +55,7 @@ UI.prototype.titleCheck = function (title) {
 
 UI.prototype.priceCheck = function (price) {
     let result = true;
-    if (price === "") {
+    if (price === "" || price == "0") {
         result = false;
     }
     return result;
