@@ -1,7 +1,7 @@
 function UI() {
 
 }
-
+    // Add to car to UI
 UI.prototype.addCarToUI = function (newCar) {
     //    <!-- <tr>
     //    <td><img src="" class="img-fluid img-thumbnail"></td>
@@ -26,17 +26,23 @@ UI.prototype.addCarToUI = function (newCar) {
     `
 }
 
+    //Load All Cars
 UI.prototype.loadAllCars = function(cars){
     const carlist = document.getElementById("cars")
     cars.forEach(function(car){
         carlist.innerHTML += `
     <tr>
-    <td><img src="${car.url}" width="200" class="img-fluid img-thumbnail"></td>
+    <td><img src="${car.url}" width="300" class="img-fluid img-thumbnail"></td>
     <td>${car.title}</td>
     <td>${car.price}</td>
     <td><a href="#" id = "delete-car" class = "btn btn-danger">Aracı Sil</a></td>
     </tr>`
     })
+}
+
+    // Delete a car from UI
+UI.prototype.deleteCarFromUI = function(element){
+    element.parentElement.parentElement.remove();
 }
 
 UI.prototype.clearInputs = function (element1, element2, element3) {

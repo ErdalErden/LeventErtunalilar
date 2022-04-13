@@ -19,3 +19,11 @@ Storage.prototype.getCarsFromStorage = function () {
     }
     return cars;
 }
+
+Storage.prototype.deleteCarFromStorage = function(carTitle){
+    let cars = this.getCarsFromStorage();
+    cars.forEach(function(car,index){
+        cars.splice(index,1);
+        localStorage.setItem("cars",JSON.stringify(cars));
+    })
+}

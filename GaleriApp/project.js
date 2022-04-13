@@ -2,6 +2,8 @@ const carform = document.getElementById("car-form");
 const titleElement = document.querySelector("#title");
 const priceElement = document.querySelector("#price");
 const urlElement = document.querySelector("#url");
+const cardbody = document.querySelectorAll(".card-body")[1];
+
 
 // UI Objesini başlatma
 const ui = new UI();
@@ -18,7 +20,8 @@ function eventListeners() {
     document.addEventListener("DOMContentLoaded",function(){
         let cars = storage.getCarsFromStorage();
         ui.loadAllCars(cars);
-    })
+    });
+    cardbody.addEventListener("click",deleteCar);
 }
 
 function addCar(e) {
@@ -44,6 +47,16 @@ function addCar(e) {
         ui.displayMessages("Araç başarıyla eklendi ...","success");
     }
     e.preventDefault();
+}
+
+function deleteCar(e){
+    
+    if(e.target.id === "delete-car"){
+        ui.deleteCarFromUI(e.target);
+        storage.deleteCarFromStorage(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
+        ui.displayMessages("Araç silindi","success");
+        //console.log(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
+    }
 }
 
 
