@@ -45,6 +45,14 @@ UI.prototype.deleteCarFromUI = function(element){
     element.parentElement.parentElement.remove();
 }
 
+UI.prototype.clearAllCarsFromUI = function(){
+    const carList = document.getElementById("cars");
+
+    while(carList.firstElementChild !== null){
+        carList.firstElementChild.remove();
+    }
+}
+
 UI.prototype.clearInputs = function (element1, element2, element3) {
     element1.value = "";
     element2.value = "";

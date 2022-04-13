@@ -27,3 +27,7 @@ Storage.prototype.deleteCarFromStorage = function(carTitle){
         localStorage.setItem("cars",JSON.stringify(cars));
     })
 }
+
+Storage.prototype.clearAllCarsFromStorage = function(){
+    localStorage.removeItem("cars");
+}
